@@ -7,7 +7,9 @@
     <title>Super App - Conversões</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Ícones Font Awesome -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
 <body>
@@ -18,52 +20,55 @@
 
     <div class="container my-5">
         <div class="row">
-            <!-- Dólar para Real -->
             <div class="col-md-4 mb-4">
                 <div class="card text-center">
                     <div class="card-body">
                         <i class="fas fa-dollar-sign fa-3x mb-3"></i>
                         <h5 class="card-title">Dólar para Real</h5>
-                        <button class="btn btn-primary" data-toggle="collapse"
-                            data-target="#dolarReal">Converter</button>
+                        <button class="btn btn-primary" data-toggle="collapse" data-target="#dolarReal">Converter</button>
                         <div id="dolarReal" class="collapse mt-3">
                             <input type="number" class="form-control" id="usd" placeholder="Valor em Dólar">
                             <button class="btn btn-success mt-2" onclick="converterDolar()">Calcular</button>
                             <p class="mt-2">Valor em Real: <span id="valorReal"></span></p>
+                            <input type="number" class="form-control mt-3" id="real" placeholder="Valor em Real">
+                            <button class="btn btn-success mt-2" onclick="converterRealParaDolar()">Calcular Inverso</button>
+                            <p class="mt-2">Valor em Dólar: <span id="valorDolar"></span></p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Celsius para Fahrenheit -->
             <div class="col-md-4 mb-4">
                 <div class="card text-center">
                     <div class="card-body">
                         <i class="fas fa-thermometer-half fa-3x mb-3"></i>
                         <h5 class="card-title">Celsius para Fahrenheit</h5>
-                        <button class="btn btn-primary" data-toggle="collapse"
-                            data-target="#celsiusFahrenheit">Converter</button>
+                        <button class="btn btn-primary" data-toggle="collapse" data-target="#celsiusFahrenheit">Converter</button>
                         <div id="celsiusFahrenheit" class="collapse mt-3">
                             <input type="number" class="form-control" id="celsius" placeholder="Temperatura em Celsius">
                             <button class="btn btn-success mt-2" onclick="converterCelsius()">Calcular</button>
                             <p class="mt-2">Temperatura em Fahrenheit: <span id="valorFahrenheit"></span></p>
+                            <input type="number" class="form-control mt-3" id="fahrenheit" placeholder="Temperatura em Fahrenheit">
+                            <button class="btn btn-success mt-2" onclick="converterFahrenheitParaCelsius()">Calcular Inverso</button>
+                            <p class="mt-2">Temperatura em Celsius: <span id="valorCelsiusInvertido"></span></p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Milhas para Km -->
             <div class="col-md-4 mb-4">
                 <div class="card text-center">
                     <div class="card-body">
                         <i class="fas fa-road fa-3x mb-3"></i>
                         <h5 class="card-title">Milhas para Km</h5>
-                        <button class="btn btn-primary" data-toggle="collapse"
-                            data-target="#milhasKm">Converter</button>
+                        <button class="btn btn-primary" data-toggle="collapse" data-target="#milhasKm">Converter</button>
                         <div id="milhasKm" class="collapse mt-3">
                             <input type="number" class="form-control" id="milhas" placeholder="Distância em Milhas">
                             <button class="btn btn-success mt-2" onclick="converterMilhas()">Calcular</button>
                             <p class="mt-2">Distância em Km: <span id="valorKm"></span></p>
+                            <input type="number" class="form-control mt-3" id="km" placeholder="Distância em Km">
+                            <button class="btn btn-success mt-2" onclick="converterKmParaMilhas()">Calcular Inverso</button>
+                            <p class="mt-2">Distância em Milhas: <span id="valorMilhasInvertido"></span></p>
                         </div>
                     </div>
                 </div>
@@ -71,50 +76,55 @@
         </div>
 
         <div class="row">
-            <!-- Pés para Metros -->
             <div class="col-md-4 mb-4">
                 <div class="card text-center">
                     <div class="card-body">
                         <i class="fas fa-ruler-vertical fa-3x mb-3"></i>
                         <h5 class="card-title">Pés para Metros</h5>
-                        <button class="btn btn-primary" data-toggle="collapse"
-                            data-target="#pesMetros">Converter</button>
+                        <button class="btn btn-primary" data-toggle="collapse" data-target="#pesMetros">Converter</button>
                         <div id="pesMetros" class="collapse mt-3">
                             <input type="number" class="form-control" id="pes" placeholder="Altura em Pés">
                             <button class="btn btn-success mt-2" onclick="converterPes()">Calcular</button>
                             <p class="mt-2">Altura em Metros: <span id="valorMetros"></span></p>
+                            <input type="number" class="form-control mt-3" id="metros" placeholder="Altura em Metros">
+                            <button class="btn btn-success mt-2" onclick="converterMetrosParaPes()">Calcular Inverso</button>
+                            <p class="mt-2">Altura em Pés: <span id="valorPesInvertido"></span></p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Galão para Litros -->
             <div class="col-md-4 mb-4">
                 <div class="card text-center">
                     <div class="card-body">
                         <i class="fas fa-tint fa-3x mb-3"></i>
                         <h5 class="card-title">Galão para Litros</h5>
-                        <button class="btn btn-primary" data-toggle="collapse"
-                            data-target="#galaoLitros">Converter</button>
+                        <button class="btn btn-primary" data-toggle="collapse" data-target="#galaoLitros">Converter</button>
                         <div id="galaoLitros" class="collapse mt-3">
                             <input type="number" class="form-control" id="galao" placeholder="Volume em Galão">
                             <button class="btn btn-success mt-2" onclick="converterGalao()">Calcular</button>
                             <p class="mt-2">Volume em Litros: <span id="valorLitros"></span></p>
+                            <input type="number" class="form-control mt-3" id="litros" placeholder="Volume em Litros">
+                            <button class="btn btn-success mt-2" onclick="converterLitrosParaGalao()">Calcular Inverso</button>
+                            <p class="mt-2">Volume em Galão: <span id="valorGalaoInvertido"></span></p>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="col-md-4 mb-4">
                 <div class="card text-center">
                     <div class="card-body">
                         <i class="fas fa-ruler-horizontal fa-3x mb-3"></i>
                         <h5 class="card-title">Polegadas para Centímetros</h5>
-                        <button class="btn btn-primary" data-toggle="collapse"
-                            data-target="#polegadasCentimetros">Converter</button>
+                        <button class="btn btn-primary" data-toggle="collapse" data-target="#polegadasCentimetros">Converter</button>
                         <div id="polegadasCentimetros" class="collapse mt-3">
                             <input type="number" class="form-control" id="polegadas" placeholder="Tamanho em Polegadas">
                             <button class="btn btn-success mt-2" onclick="converterPolegadas()">Calcular</button>
                             <p class="mt-2">Tamanho em Centímetros: <span id="valorPolegadas"></span></p>
+                            <input type="number" class="form-control mt-3" id="centimetros" placeholder="Tamanho em Centímetros">
+                            <button class="btn btn-success mt-2" onclick="converterCentimetrosParaPolegadas()">Calcular Inverso</button>
+                            <p class="mt-2">Tamanho em Polegadas: <span id="valorPolegadasInvertido"></span></p>
                         </div>
                     </div>
                 </div>
@@ -126,6 +136,4 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
-</body>
-
-</html>
+</
