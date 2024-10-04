@@ -1,67 +1,131 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/balanca.png" type="image/x-icon">
-    <title>Super APP - Gringa</title>
-    <meta name="description" content="APP para quem deseja acompanhar de forma simples e direta diversas métricas de saúde">
+    <title>Super App - Conversões</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Ícones Font Awesome -->
 </head>
-<body>
-    <header>
-        <h1>Super APP - Gringa!</h1>
-        <p class="subtitulo">App com várias funções para quem quer entender a gringa americana!</p>
-    </header>
-    <!-- Entrada de dados -->
-    <form name="frmHealth">
-        <input type="number" name="txtIdade" placeholder="Idade">
-        <input type="number" name="txtPeso" placeholder="Peso (Kg)">
-        <input type="number" name="txtAltura" placeholder="Altura (cm)">
-        <div class="Radio">
-            <input type="radio" name="grupo" id="m">Masculino
-            <input type="radio" name="grupo" id="f">Feminino
-        </div>  
-        <select name="nivel" id="atividade">
-            <option value="" selected>Selecione o nível de atividade física</option>
-            <option value="1.2">Sedentário</option>
-            <option value="1.375">Exercício leve (1-2 dias/semana)</option>
-            <option value="1.55">Exercício moderado (3-5 dias/semana)</option>
-            <option value="1.725">Exercício pesado (6-7 dias/semana)</option>
-            <option value="1.9">Atleta (1 a 2 treinos/dia)</option>
-        </select>
-        <div id="buttons">
-            <input type="button" value="Calcular" onclick="calcular()">
-            <input type="reset" value="Limpar" onclick="limpar()">
-        </div>
-    </form>
-    <hr>
-    <!--imc, mostrador e coração pulsando -->
-    <div class="info">
-        <!-- mostrador e imc -->
-        <div class="infoIMC">
-            <img src="img/reset.png" alt="Mostrador" id="grafico">
-            <h2 id="imc">IMC</h2>
-            <h3 id="status">status</h3>
 
+<body>
+    <header class="bg-primary text-white text-center py-4">
+        <h1>Conversor Universal</h1>
+        <p class="lead">Clique no ícone para iniciar a conversão</p>
+    </header>
+
+    <div class="container my-5">
+        <div class="row">
+            <!-- Dólar para Real -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="fas fa-dollar-sign fa-3x mb-3"></i>
+                        <h5 class="card-title">Dólar para Real</h5>
+                        <button class="btn btn-primary" data-toggle="collapse"
+                            data-target="#dolarReal">Converter</button>
+                        <div id="dolarReal" class="collapse mt-3">
+                            <input type="number" class="form-control" id="usd" placeholder="Valor em Dólar">
+                            <button class="btn btn-success mt-2" onclick="converterDolar()">Calcular</button>
+                            <p class="mt-2">Valor em Real: <span id="valorReal"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Celsius para Fahrenheit -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="fas fa-thermometer-half fa-3x mb-3"></i>
+                        <h5 class="card-title">Celsius para Fahrenheit</h5>
+                        <button class="btn btn-primary" data-toggle="collapse"
+                            data-target="#celsiusFahrenheit">Converter</button>
+                        <div id="celsiusFahrenheit" class="collapse mt-3">
+                            <input type="number" class="form-control" id="celsius" placeholder="Temperatura em Celsius">
+                            <button class="btn btn-success mt-2" onclick="converterCelsius()">Calcular</button>
+                            <p class="mt-2">Temperatura em Fahrenheit: <span id="valorFahrenheit"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Milhas para Km -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="fas fa-road fa-3x mb-3"></i>
+                        <h5 class="card-title">Milhas para Km</h5>
+                        <button class="btn btn-primary" data-toggle="collapse"
+                            data-target="#milhasKm">Converter</button>
+                        <div id="milhasKm" class="collapse mt-3">
+                            <input type="number" class="form-control" id="milhas" placeholder="Distância em Milhas">
+                            <button class="btn btn-success mt-2" onclick="converterMilhas()">Calcular</button>
+                            <p class="mt-2">Distância em Km: <span id="valorKm"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- coração pulsando com FCM -->
-        <div class="coracao">
-            <div class="quadrado"></div>
-            <div class="circulo top"></div>
-            <div class="circulo left"></div>
-            <h2 id="freq">FCM</h2>
+
+        <div class="row">
+            <!-- Pés para Metros -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="fas fa-ruler-vertical fa-3x mb-3"></i>
+                        <h5 class="card-title">Pés para Metros</h5>
+                        <button class="btn btn-primary" data-toggle="collapse"
+                            data-target="#pesMetros">Converter</button>
+                        <div id="pesMetros" class="collapse mt-3">
+                            <input type="number" class="form-control" id="pes" placeholder="Altura em Pés">
+                            <button class="btn btn-success mt-2" onclick="converterPes()">Calcular</button>
+                            <p class="mt-2">Altura em Metros: <span id="valorMetros"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galão para Litros -->
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="fas fa-tint fa-3x mb-3"></i>
+                        <h5 class="card-title">Galão para Litros</h5>
+                        <button class="btn btn-primary" data-toggle="collapse"
+                            data-target="#galaoLitros">Converter</button>
+                        <div id="galaoLitros" class="collapse mt-3">
+                            <input type="number" class="form-control" id="galao" placeholder="Volume em Galão">
+                            <button class="btn btn-success mt-2" onclick="converterGalao()">Calcular</button>
+                            <p class="mt-2">Volume em Litros: <span id="valorLitros"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <i class="fas fa-ruler-horizontal fa-3x mb-3"></i>
+                        <h5 class="card-title">Polegadas para Centímetros</h5>
+                        <button class="btn btn-primary" data-toggle="collapse"
+                            data-target="#polegadasCentimetros">Converter</button>
+                        <div id="polegadasCentimetros" class="collapse mt-3">
+                            <input type="number" class="form-control" id="polegadas" placeholder="Tamanho em Polegadas">
+                            <button class="btn btn-success mt-2" onclick="converterPolegadas()">Calcular</button>
+                            <p class="mt-2">Tamanho em Centímetros: <span id="valorPolegadas"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <hr>
-    <!-- get e litros -->
-    <h2>Manutenção do peso:</h2>
-    <h3 id="calorias">Calorias/dia</h3>
-    <hr>
-    <h2>Consumo de água:</h2>
-    <h3 id="agua">Litros/dia</h3>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>
