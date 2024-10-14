@@ -6,20 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Super App - Conversões</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
-    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
 <body>
     <header class="bg-primary text-white text-center py-4">
-        <h1>O conversor mais maneiro da gringa!</h1>
+        <h1>Conversor Universal</h1>
         <p class="lead">Clique no ícone para iniciar a conversão</p>
     </header>
 
     <div class="container my-5">
         <div class="row">
+            <!-- Dólar para Real -->
             <div class="col-md-4 mb-4">
                 <div class="card text-center">
                     <div class="card-body">
@@ -29,15 +27,14 @@
                         <div id="dolarReal" class="collapse mt-3">
                             <input type="number" class="form-control" id="usd" placeholder="Valor em Dólar">
                             <button class="btn btn-success mt-2" onclick="converterDolar()">Calcular</button>
+                            <button class="btn btn-secondary mt-2" onclick="limparCampos('usd')">Limpar</button>
                             <p class="mt-2">Valor em Real: <span id="valorReal"></span></p>
-                            <input type="number" class="form-control mt-3" id="real" placeholder="Valor em Real">
-                            <button class="btn btn-success mt-2" onclick="converterRealParaDolar()">Calcular Inverso</button>
-                            <p class="mt-2">Valor em Dólar: <span id="valorDolar"></span></p>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Celsius para Fahrenheit -->
             <div class="col-md-4 mb-4">
                 <div class="card text-center">
                     <div class="card-body">
@@ -47,15 +44,14 @@
                         <div id="celsiusFahrenheit" class="collapse mt-3">
                             <input type="number" class="form-control" id="celsius" placeholder="Temperatura em Celsius">
                             <button class="btn btn-success mt-2" onclick="converterCelsius()">Calcular</button>
+                            <button class="btn btn-secondary mt-2" onclick="limparCampos('celsius')">Limpar</button>
                             <p class="mt-2">Temperatura em Fahrenheit: <span id="valorFahrenheit"></span></p>
-                            <input type="number" class="form-control mt-3" id="fahrenheit" placeholder="Temperatura em Fahrenheit">
-                            <button class="btn btn-success mt-2" onclick="converterFahrenheitParaCelsius()">Calcular Inverso</button>
-                            <p class="mt-2">Temperatura em Celsius: <span id="valorCelsiusInvertido"></span></p>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Milhas para Km -->
             <div class="col-md-4 mb-4">
                 <div class="card text-center">
                     <div class="card-body">
@@ -65,10 +61,8 @@
                         <div id="milhasKm" class="collapse mt-3">
                             <input type="number" class="form-control" id="milhas" placeholder="Distância em Milhas">
                             <button class="btn btn-success mt-2" onclick="converterMilhas()">Calcular</button>
+                            <button class="btn btn-secondary mt-2" onclick="limparCampos('milhas')">Limpar</button>
                             <p class="mt-2">Distância em Km: <span id="valorKm"></span></p>
-                            <input type="number" class="form-control mt-3" id="km" placeholder="Distância em Km">
-                            <button class="btn btn-success mt-2" onclick="converterKmParaMilhas()">Calcular Inverso</button>
-                            <p class="mt-2">Distância em Milhas: <span id="valorMilhasInvertido"></span></p>
                         </div>
                     </div>
                 </div>
@@ -76,6 +70,7 @@
         </div>
 
         <div class="row">
+            <!-- Pés para Metros -->
             <div class="col-md-4 mb-4">
                 <div class="card text-center">
                     <div class="card-body">
@@ -85,15 +80,14 @@
                         <div id="pesMetros" class="collapse mt-3">
                             <input type="number" class="form-control" id="pes" placeholder="Altura em Pés">
                             <button class="btn btn-success mt-2" onclick="converterPes()">Calcular</button>
+                            <button class="btn btn-secondary mt-2" onclick="limparCampos('pes')">Limpar</button>
                             <p class="mt-2">Altura em Metros: <span id="valorMetros"></span></p>
-                            <input type="number" class="form-control mt-3" id="metros" placeholder="Altura em Metros">
-                            <button class="btn btn-success mt-2" onclick="converterMetrosParaPes()">Calcular Inverso</button>
-                            <p class="mt-2">Altura em Pés: <span id="valorPesInvertido"></span></p>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Galão para Litros -->
             <div class="col-md-4 mb-4">
                 <div class="card text-center">
                     <div class="card-body">
@@ -103,15 +97,14 @@
                         <div id="galaoLitros" class="collapse mt-3">
                             <input type="number" class="form-control" id="galao" placeholder="Volume em Galão">
                             <button class="btn btn-success mt-2" onclick="converterGalao()">Calcular</button>
+                            <button class="btn btn-secondary mt-2" onclick="limparCampos('galao')">Limpar</button>
                             <p class="mt-2">Volume em Litros: <span id="valorLitros"></span></p>
-                            <input type="number" class="form-control mt-3" id="litros" placeholder="Volume em Litros">
-                            <button class="btn btn-success mt-2" onclick="converterLitrosParaGalao()">Calcular Inverso</button>
-                            <p class="mt-2">Volume em Galão: <span id="valorGalaoInvertido"></span></p>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Polegadas para Centímetros -->
             <div class="col-md-4 mb-4">
                 <div class="card text-center">
                     <div class="card-body">
@@ -121,10 +114,8 @@
                         <div id="polegadasCentimetros" class="collapse mt-3">
                             <input type="number" class="form-control" id="polegadas" placeholder="Tamanho em Polegadas">
                             <button class="btn btn-success mt-2" onclick="converterPolegadas()">Calcular</button>
+                            <button class="btn btn-secondary mt-2" onclick="limparCampos('polegadas')">Limpar</button>
                             <p class="mt-2">Tamanho em Centímetros: <span id="valorPolegadas"></span></p>
-                            <input type="number" class="form-control mt-3" id="centimetros" placeholder="Tamanho em Centímetros">
-                            <button class="btn btn-success mt-2" onclick="converterCentimetrosParaPolegadas()">Calcular Inverso</button>
-                            <p class="mt-2">Tamanho em Polegadas: <span id="valorPolegadasInvertido"></span></p>
                         </div>
                     </div>
                 </div>
@@ -132,8 +123,11 @@
         </div>
     </div>
 
+    <!-- JS para Bootstrap e Funções -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
-</
+</body>
+
+</html>
