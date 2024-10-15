@@ -1,7 +1,7 @@
 # superappgringa
 APP que junta várias funções maneiras de gringa!!!
 
-[Clique aqui para acessar o APP](https://arkenzera-main.github.io/superappgringa/)
+[Realease 0.1 com API dollar](https://arkenzera-main.github.io/superappgringa/)
 
-[Ou aqui](https://diegowps.github.io/SuperGringaAPP/)
+[Realease 0.2](https://diegowps.github.io/SuperGringaAPP/)
 
